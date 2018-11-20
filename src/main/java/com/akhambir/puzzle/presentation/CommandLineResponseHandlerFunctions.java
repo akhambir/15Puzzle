@@ -25,7 +25,7 @@ final class CommandLineResponseHandlerFunctions {
     static Consumer<int[]> whenFinished = r ->
             buildResponseFromState
                     .andThen(CommandLineResponseHandlerFunctions.finalResponse)
-                    .andThen(CommandLineResponseHandlerFunctions.finishGame)
+                    .andThen(CommandLineResponseHandlerFunctions.printAndFinishGame)
                     .accept(r);
 
     static Function<StringBuilder, StringBuilder> wrongRequestMessage = sb -> {
@@ -40,5 +40,8 @@ final class CommandLineResponseHandlerFunctions {
 
     static Consumer<StringBuilder> print = System.out::println;
 
-    static Consumer<StringBuilder> finishGame = r -> System.exit(0);
+    static Consumer<StringBuilder> printAndFinishGame = r -> {
+        System.out.println(r);
+        System.exit(0);
+    };
 }

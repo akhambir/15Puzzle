@@ -10,6 +10,7 @@ public final class Constants {
     public static final int VERTICAL_RANGE = 4;
     public static final int SMALLEST_CELL_VALUE = 1;
     public static final int HIGHEST_CELL_VALUE = 15;
+    public static final int SIDE_LENGTH = 4;
     public static final int FIRST_TILE = 1;
 
 

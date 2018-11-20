@@ -10,6 +10,7 @@ import java.util.function.UnaryOperator;
 
 import static com.akhambir.puzzle.util.Constants.EMPTY_CELL;
 import static com.akhambir.puzzle.util.Constants.FIRST_TILE;
+import static com.akhambir.puzzle.util.Constants.SIDE_LENGTH;
 import static com.akhambir.puzzle.util.function.Functions.buildResponseFromState;
 import static com.akhambir.puzzle.util.function.Functions.findPos;
 
@@ -37,7 +38,7 @@ final class GameInitializerFunctions {
                     .apply(gs)
                     .apply(inv);
 
-    static UnaryOperator<Integer> defineLineOfPosFromTheBottom = p -> 4 - (p - 1) / 4;
+    static UnaryOperator<Integer> defineLineOfPosFromTheBottom = p -> SIDE_LENGTH - (p - 1) / SIDE_LENGTH;
 
     static Function<Integer, Function<Integer, Boolean>> compareInversionsToLineNumber =
             ln -> inv -> (ln % 2 != 0) == (inv % 2 == 0);

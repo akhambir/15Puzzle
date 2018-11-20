@@ -6,9 +6,7 @@ import static com.akhambir.puzzle.driver.initializer.GameInitializerFunctions.sh
 
 public class GameInitializer {
 
-    public int[] initialize() {
-        int[] initialGameState = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15};
-
+    public int[] initialize(int[] initialGameState) {
         return shuffle
                 .andThen(checkSolvability)
                 .andThen(respondAndContinue)

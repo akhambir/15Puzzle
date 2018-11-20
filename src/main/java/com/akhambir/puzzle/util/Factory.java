@@ -26,11 +26,16 @@ public final class Factory {
     }
 
     public static GameProcessor getGameProcessorImpl(ResponseHandler responseHandler) {
+
         GameProcessorImpl gameProcessor = new GameProcessorImpl(responseHandler);
         GameInitializer gameInitializer = new GameInitializer();
-        int[] initialGameState = gameInitializer.initialize();
+        int[] initialGameState = gameInitializer.initialize(getInitialGameState());
         gameProcessor.setInitialGameState(initialGameState);
         return gameProcessor;
+    }
+
+    public static int[] getInitialGameState() {
+        return new int[] {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15};
     }
 
     public static ResponseHandler getCommandLineResponseHandler() {
