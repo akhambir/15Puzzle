@@ -13,7 +13,9 @@ public final class Constants {
     public static final int SIDE_LENGTH = 4;
     public static final int FIRST_TILE = 1;
 
+    public static final String QUIT = "quit";
 
     public static final String WRONG_INPUT_MSG = "Wrong input. Try again.";
     public static final String FINAL_MSG = "Congratulations! You win!";
+    public static final String GAME_OVER = "Game Over!";
 }

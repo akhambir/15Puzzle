@@ -6,4 +6,5 @@ public interface GameProcessor {
 
     void process(Request request);
 
+    void terminate(String msg);
 }

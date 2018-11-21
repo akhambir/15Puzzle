@@ -9,4 +9,4 @@
 
 As a result you will see game board.
 
-When you finish the sequence game will be terminated automatically, ```Ctrl + z``` combination will also terminate the game.
+When you finish the sequence game will be terminated automatically, ```quit``` input will also terminate the game.

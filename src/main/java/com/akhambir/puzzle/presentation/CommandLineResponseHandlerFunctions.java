@@ -6,6 +6,8 @@ import java.util.function.Function;
 import static com.akhambir.puzzle.util.Constants.FINAL_MSG;
 import static com.akhambir.puzzle.util.Constants.WRONG_INPUT_MSG;
 import static com.akhambir.puzzle.util.function.Functions.buildResponseFromState;
+import static com.akhambir.puzzle.util.function.Functions.finishGame;
+import static com.akhambir.puzzle.util.function.Functions.print;
 
 final class CommandLineResponseHandlerFunctions {
 
@@ -15,17 +17,18 @@ final class CommandLineResponseHandlerFunctions {
     static Consumer<int[]> whenWrongRequest = r ->
             buildResponseFromState
                     .andThen(CommandLineResponseHandlerFunctions.wrongRequestMessage)
-                    .andThen(CommandLineResponseHandlerFunctions.print).accept(r);
+                    .andThen(print).accept(r);
 
     static Consumer<int[]> whenNextTurn = r ->
             buildResponseFromState
-                    .andThen(CommandLineResponseHandlerFunctions.print)
+                    .andThen(print)
                     .accept(r);
 
     static Consumer<int[]> whenFinished = r ->
             buildResponseFromState
                     .andThen(CommandLineResponseHandlerFunctions.finalResponse)
-                    .andThen(CommandLineResponseHandlerFunctions.printAndFinishGame)
+                    .andThen(print)
+                    .andThen(finishGame)
                     .accept(r);
 
     static Function<StringBuilder, StringBuilder> wrongRequestMessage = sb -> {
@@ -38,10 +41,5 @@ final class CommandLineResponseHandlerFunctions {
         return sb;
     };
 
-    static Consumer<StringBuilder> print = System.out::println;
 
-    static Consumer<StringBuilder> printAndFinishGame = r -> {
-        System.out.println(r);
-        System.exit(0);
-    };
 }

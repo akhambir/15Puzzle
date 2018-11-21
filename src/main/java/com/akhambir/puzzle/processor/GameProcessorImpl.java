@@ -11,6 +11,8 @@ import static com.akhambir.puzzle.processor.GameProcessorImplFunctions.handleRes
 import static com.akhambir.puzzle.processor.GameProcessorImplFunctions.validateTurn;
 import static com.akhambir.puzzle.processor.GameProcessorImplFunctions.processRequest;
 import static com.akhambir.puzzle.processor.GameProcessorImplFunctions.updateCurrentState;
+import static com.akhambir.puzzle.util.function.Functions.finishGame;
+import static com.akhambir.puzzle.util.function.Functions.print;
 
 public class GameProcessorImpl implements GameProcessor {
 
@@ -34,6 +36,13 @@ public class GameProcessorImpl implements GameProcessor {
                 .andThen(handleResponse)
                 .apply(gameStateHolder)
                 .accept(responseHandler);
+    }
+
+    @Override
+    public void terminate(String msg) {
+        print
+                .andThen(finishGame)
+                .accept(new StringBuilder(msg));
     }
 
     public void setInitialGameState(int[] initialGameState) {

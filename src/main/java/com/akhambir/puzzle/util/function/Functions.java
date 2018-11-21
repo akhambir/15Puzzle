@@ -2,6 +2,7 @@ package com.akhambir.puzzle.util.function;
 
 import java.util.Arrays;
 import java.util.function.BiFunction;
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import static com.akhambir.puzzle.util.Constants.EMPTY_CELL;
@@ -32,5 +33,11 @@ public final class Functions {
                 .append(String.format("| %s | %s | %s | %s |", r[13], r[14], r[15], r[16])).append("\n");
 
         return sb;
+    };
+
+    public static Consumer<StringBuilder> print = System.out::println;
+
+    public static Consumer<Object> finishGame = r -> {
+        System.exit(0);
     };
 }
