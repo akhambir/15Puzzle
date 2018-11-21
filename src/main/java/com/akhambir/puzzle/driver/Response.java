@@ -2,8 +2,8 @@ package com.akhambir.puzzle.driver;
 
 public class Response {
 
-    private int[] gameState;
-    private Result result;
+    private final int[] gameState;
+    private final Result result;
 
     private Response(int[] gameState, Result result) {
         this.gameState = gameState;
